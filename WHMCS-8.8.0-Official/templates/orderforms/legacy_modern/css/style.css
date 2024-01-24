@@ -1,0 +1,143 @@
+/**
+ * Legacy Modern order form style sheet
+ *
+ * Contains styling specific to the Legacy Modern order form template.
+ *
+ * @project   WHMCS
+ * @version   1.0
+ * @author    WHMCS Limited <development@whmcs.com>
+ * @copyright Copyright (c) WHMCS Limited 2005-2020
+ * @license   https://www.whmcs.com/license/
+ * @link      https://www.whmcs.com/
+ *
+ */
+#order-modern {
+    margin: 0;
+    padding: 0 0 40px;
+}
+
+#order-modern .title-bar {
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+#order-modern .title-bar h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#order-modern select {
+    border: 1px solid #ccc;
+    padding: 1px;
+}
+
+#order-modern .clear {
+    clear: both;
+}
+
+#order-modern #configcontainer, #order-modern #configcontainer2 {
+    display: none;
+}
+
+#order-modern .loading {
+    display: none;
+    width: 220px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+#order-modern #cartLoader i {
+    font-size: 1.6em;
+}
+
+#order-modern .errorbox {
+    display: none;
+    margin: 15px 0;
+    padding: 15px 20px;
+    background-color: #FBEEEB;
+    border: 1px dashed #cc0000;
+    font-weight: bold;
+    color: #cc0000;
+    text-align: center;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+/*
+Product Categories
+*/
+
+#order-modern .choosecat {
+    margin: 10px;
+}
+
+#order-modern .currencychooser {
+    margin: 10px 30px;
+    padding: 0;
+    text-align: right;
+}
+
+/*
+Product Listing
+*/
+
+#order-modern .product {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#order-modern .product:hover {
+    background-color: #E6EDFF;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#order-modern .product .pricing {
+    float: right;
+    text-align: right;
+    font-family: Lucida Sans Unicode,Lucida Grande,sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+#order-modern .product .name {
+    font-family: Lucida Sans Unicode,Lucida Grande,sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#order-modern .product .prodfeature {
+    float: left;
+    margin: 5px 5px 0 0;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    text-align: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #ff6600;
+}
+
+#order-modern .product .prodfeature .feature {
+    font-size: 13px;
+    color: #666;
+}
+
+#order-modern .product .description {
+    font-size: 0.9em;
+    margin: 15px 30px 10px 20px;
+}

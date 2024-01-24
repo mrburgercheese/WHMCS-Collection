@@ -1,0 +1,315 @@
+variables:
+  # Effects container naming
+  BUILD_TAG: "$CI_PIPELINE_ID-$CI_JOB_ID-$CI_CONCURRENT_PROJECT_ID"
+  # Set to anything to not include test jobs
+  SKIP_TESTS:
+    description: Whether to include any test jobs.
+    value: '1'
+    options: ['0', '1']
+  DO_RELEASE:
+    description: Set to the branch name to initiate a release, and thus include release jobs.
+  # Used to additionally identify individual release artifacts
+  WHMCS_BUILD_ID:
+    description: Specify the build increment for release artifacts.
+    value: '0'
+  # WHMCS incremental artifact creation uses a basic file-diff against the previous release tag
+  #  to determine the files to include, and uses dependency package file changes to determine if
+  #  dependency files need to be included. Sometimes the changes to dependency package files
+  #  do not effect the product. These flags allow for ignoring dependency files inclusion
+  #  within the incremental artifact when such changes have occurred.
+  IGNORE_COMPOSER_CHANGED:
+    description: Incremental artifact; ignore composer dependency inclusion despite detecting composer.lock file change.
+    value: '0'
+    options: ['0', '1']
+#  IGNORE_NPM_CHANGED:
+#    description: Incremental artifact; ignore NPM dependency inclusion despite detecting packages.json file change.
+#    value: '0'
+#    options: ['0', '1']
+  IGNORE_JS_CHANGED:
+    description: Incremental artifact; ignore Gulp javascript artifact inclusion.
+    value: '0'
+    options: ['0', '1']
+  IGNORE_CSS_CHANGED:
+    description: Incremental artifact; ignore Gulp CSS artifact inclusion.
+    value: '0'
+    options: ['0', '1']
+  # Perform mock deployment activities
+  FAUX_DEPLOY:
+    description: Whether deployment jobs should only pretend.
+    value: '1'
+    options: ['0', '1']
+
+.cache_composer: &a_cache_composer
+  key:
+    files:
+      - composer.lock
+  paths:
+    - vendor/
+  policy: pull
+.cache_npm: &a_cache_npm
+  key:
+    files:
+      - package.json
+  paths:
+    - package-lock.json
+    - node_modules/
+  policy: pull
+.cache_composer_push:
+  <<: *a_cache_composer
+  policy: pull-push
+.cache_npm_push:
+  <<: *a_cache_npm
+  policy: pull-push
+.cache_build:
+  - !reference [.cache_composer]
+  - !reference [.cache_npm]
+.cache_build_push:
+  - !reference [.cache_composer_push]
+  - !reference [.cache_npm_push]
+.script_assert_cache_loaded:
+  # Check that cache was loaded
+  - '(test ! -f vendor/autoload.php || test ! -d node_modules) && exit 99'
+.script_build_whmcs:
+  - echo -e "\e[0Ksection_start:`date +%s`:whmcs_build[collapsed=true]\r\e[0KBuild WHMCS"
+  - './tools/build -n'
+  - echo -e "\e[0Ksection_end:`date +%s`:whmcs_build\r\e[0K"
+.script_containers_start_php74:
+  - echo -e "\e[0Ksection_start:`date +%s`:container_startup[collapsed=true]\r\e[0KStart Containers"
+  - './docker/tools/start.sh --image --jenkins --php 7.4'
+  - echo -e "\e[0Ksection_end:`date +%s`:container_startup\r\e[0K"
+.script_containers_start_php81:
+  - echo -e "\e[0Ksection_start:`date +%s`:container_startup[collapsed=true]\r\e[0KStart Containers"
+  - './docker/tools/start.sh --image --jenkins --php 8.1'
+  - echo -e "\e[0Ksection_end:`date +%s`:container_startup\r\e[0K"
+.script_containers_start_encoded_php72:
+  - echo -e "\e[0Ksection_start:`date +%s`:container_startup[collapsed=true]\r\e[0KStart Containers"
+  - './docker/tools/start.sh --image --jenkins --php 7.4 --encoded 7.2'
+  - echo -e "\e[0Ksection_end:`date +%s`:container_startup\r\e[0K"
+.script_containers_start_encoded_php81:
+  - echo -e "\e[0Ksection_start:`date +%s`:container_startup[collapsed=true]\r\e[0KStart Containers"
+  - './docker/tools/start.sh --image --jenkins --php 7.4 --encoded 8.1'
+  - echo -e "\e[0Ksection_end:`date +%s`:container_startup\r\e[0K"
+.script_containers_stop:
+  - echo -e "\e[0Ksection_start:`date +%s`:container_shutdown[collapsed=true]\r\e[0KCleanup Containers"
+  - './docker/tools/stop.sh --jenkins'
+  - echo -e "\e[0Ksection_end:`date +%s`:container_shutdown\r\e[0K"
+.script_prepare_source_execution:
+  - echo -e "\e[0Ksection_start:`date +%s`:prepare_source[collapsed=true]\r\e[0KPrepare Source for Execution"
+  - 'cp tests/_data/config/sample.php configuration.php'
+  - './docker/tools/source-execution-permissions.sh'
+  - 'umask g+w'
+  - echo -e "\e[0Ksection_end:`date +%s`:prepare_source\r\e[0K"
+.script_reset_source_execution:
+  - echo -e "\e[0Ksection_start:`date +%s`:reset_source[collapsed=true]\r\e[0KReset Source"
+  - 'WHMCS_CONTAINER_SOURCE=$(./docker/tools/container-select.sh source --jenkins)'
+  - 'if [ -n "$WHMCS_CONTAINER_SOURCE" ]; then ./docker/tools/container-cmd.sh -n "$WHMCS_CONTAINER_SOURCE" "cd whmcs; ./docker/tools/source-execution-reset.sh" || true; fi;'
+  - echo -e "\e[0Ksection_end:`date +%s`:reset_source\r\e[0K"
+#.script_install_whmcs:
+#  - echo -e "\e[0Ksection_start:`date +%s`:install_whmcs[collapsed=true]\r\e[0KWHMCS Source Installation"
+#  - "./docker/tools/container-cmd.sh -n $WHMCS_CONTAINER_SOURCE 'php -q ./whmcs/install2/bin/installer.php -i -n'"
+#  - echo -e "\e[0Ksection_end:`date +%s`:install_whmcs\r\e[0K"
+#.script_install_whmcs_source:
+#  - !reference [.script_prepare_source_execution]
+#  - !reference [.script_install_whmcs]
+
+.script_test_unit:
+    - './docker/tools/run_tests.sh tests/unit --jenkins'
+
+.script_test_integration:
+    - './docker/tools/run_tests.sh tests/integration --target local --jenkins'
+
+.script_test_api:
+    - './docker/tools/run_tests.sh tests/api --target local --jenkins'
+
+.script_test_uat_s1:
+    - './docker/tools/run_tests.sh tests/acceptance/SBCL/Level_One/ --target local --jenkins'
+
+.script_test_uat_s2a:
+    - './docker/tools/run_tests.sh tests/acceptance/SBCL/Level_Two/ --skip-group=SBCL_LEVEL_TWO_B --target local --jenkins --screenshots'
+
+.script_test_uat_s2b:
+    - './docker/tools/run_tests.sh tests/acceptance/SBCL/Level_Two/ --skip-group=SBCL_LEVEL_TWO_A --target local --jenkins'
+
+.script_test_uat_s3a:
+    - './docker/tools/run_tests.sh tests/acceptance/SBCL/Level_Three/ --skip-group=SBCL_LEVEL_THREE_B --target local --jenkins'
+
+.script_test_uat_s3b:
+    - './docker/tools/run_tests.sh tests/acceptance/SBCL/Level_Three/ --skip-group=SBCL_LEVEL_THREE_A --target local --jenkins'
+
+.job:
+  cache:
+    !reference [.cache_build]
+  before_script:
+    - !reference [.script_assert_cache_loaded]
+    - !reference [.script_build_whmcs]
+  # Unable to define actions to allow for graceful cancellation; so cancellations will strand
+  #  resources (https://gitlab.com/groups/gitlab-org/-/epics/10158).
+  after_script:
+    - !reference [.script_reset_source_execution]
+    - !reference [.script_containers_stop]
+  artifacts:
+    name: '$CI_COMMIT_SHORT_SHA-$CI_JOB_NAME_SLUG-$CI_JOB_ID'
+    paths:
+      - 'tests/_log/'
+    exclude:
+      - 'tests/_log/index.php'
+      - 'tests/_log/report.*'
+      - 'tests/_log/failed'
+    when: always
+    reports:
+      junit: tests/_log/report.xml
+
+.job-test:
+  extends: .job
+  stage: test
+  rules:
+    - if: $SKIP_TESTS == '1'
+      when: never
+    - when: always
+
+.job-test-source:
+  extends: .job-test
+  dependencies: []
+
+workflow:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - when: never
+
+stages:
+  - build
+  - test
+  - deploy
+  - validate
+
+include: tools/release/config/gitlab-ci.yml
+
+build-source:
+  stage: build
+  tags:
+    - whmcs-build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - composer.json
+        - composer.lock
+        - package.json
+        - package-lock.json
+    # Allow manually priming of the distributed cache
+    - if: $CI_PIPELINE_SOURCE == "web"
+  cache:
+    !reference [.cache_build_push]
+  script:
+    - './tools/build -n'
+    # Because we can't exclude paths from the cache definition; (https://gitlab.com/gitlab-org/gitlab/-/issues/220017)
+    - 'rm -rf vendor/whmcs/whmcs-foundation'
+
+test-unit-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-unit
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_unit]
+
+test-integration-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-integration
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_integration]
+
+test-api-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-api
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_api]
+
+test-uat-s1-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-uat
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_uat_s1]
+
+test-uat-s2a-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-uat
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_uat_s2a]
+
+test-uat-s2b-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-uat
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_uat_s2b]
+
+test-uat-s3a-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-uat
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_uat_s3a]
+
+test-uat-s3b-php74:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-uat
+  script:
+    - !reference [.script_containers_start_php74]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_uat_s3b]
+
+test-unit-php81:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-unit
+  script:
+    - !reference [.script_containers_start_php81]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_unit]
+
+test-api-php81:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-api
+  script:
+    - !reference [.script_containers_start_php81]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_api]
+
+test-uat-s1-php81:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-uat
+  script:
+    - !reference [.script_containers_start_php81]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_uat_s1]
+
+test-uat-s2a-php81:
+  extends: .job-test-source
+  tags:
+    - whmcs-test-source-uat
+  script:
+    - !reference [.script_containers_start_php81]
+    - !reference [.script_prepare_source_execution]
+    - !reference [.script_test_uat_s2a]

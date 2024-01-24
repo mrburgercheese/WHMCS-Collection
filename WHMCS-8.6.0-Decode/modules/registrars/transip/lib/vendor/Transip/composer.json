@@ -1,0 +1,28 @@
+{
+  "name": "transip/transip-api-php",
+  "description": "TransIP Rest API Library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "TransIP",
+      "email": "support@transip.eu"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.2.0|^8.0",
+    "symfony/cache": "^3.4|^4.4|^5.0",
+    "guzzlehttp/guzzle": "^6.3|^7.0",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.17",
+    "php-parallel-lint/php-parallel-lint": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Transip\\Api\\Library\\": "src/"
+    }
+  }
+}
