@@ -1,0 +1,27 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-servers",
+  "name": "wpsquared",
+  "license": "proprietary",
+  "category": "webhosting",
+  "description": {
+    "name": "WP Squared[tm]",
+    "tagline": "High-Performance WordPress Management Made Easy. Powered by cPanel",
+    "short": "WP Squared is the leading web hosting control panel and is the hosting platform of choice by more web hosts than any other.",
+    "long": "Fully integrated with WHMCS for streamlined billing, customer management, and efficient operations\n\nMain Features:\nAutomatic WP Squared Account Provisioning\nProfessional Invoices & Recurring Payment Collection\nAutomated Suspensions, Termination, and Upgrades\nAutomated SSL Provisioning & Installation\nIntegrated Disk & Bandwidth Usage Reporting"
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/wpsquared.com\/",
+    "support_url": "https:\/\/www.cpanel.com\/support",
+    "docs_url": "https:\/\/docs.whmcs.com\/WP_Squared"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}
