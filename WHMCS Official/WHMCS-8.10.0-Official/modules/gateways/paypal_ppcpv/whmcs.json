@@ -1,0 +1,30 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-gateways",
+  "name": "paypal_ppcpv",
+  "license": "proprietary",
+  "category": "payments",
+  "description": {
+    "name": "PayPal Payments",
+    "tagline": "Accept PayPal® payments using our recommended PayPal integration.",
+    "long": "## WHMCS's ideal way to accept PayPal.\n\n\nWhen you use PayPal to accept online payments, you give your customers confidence: PayPal's research has shown that offering payment with PayPal increases checkout conversion **by up to 62%**.\n\nThis PayPal integration is **easy** and **secure**. Repeat customers get a faster checkout experience, and you can automate recurring payments and bill on-demand.\n\nPayPal Payments activates the optional PayPal Card Payments integration for an unbranded credit and debit card experience.",
+    "features": [
+      "Vaulted Payment Methods — Securely store payment methods with PayPal Vault ([for supported countries](http://go.whmcs.com/1801/PayPal-Payments-service-regions)).",
+      "PayPal Smart Buttons — Offer one-click payments with PayPal brand recognition.",
+      "Full WHMCS Integration — Manage customer disputes, issue refunds, and view your PayPal merchant balance."
+    ]
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/www.paypal.com\/",
+    "docs_url": "https:\/\/docs.whmcs.com\/PayPal_Payments"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}
