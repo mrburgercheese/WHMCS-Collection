@@ -1,0 +1,60 @@
+/**
+ * Legacy Boxes order form style sheet
+ *
+ * Contains styling specific to the Legacy Boxes order form template.
+ *
+ * @project   WHMCS
+ * @version   1.0
+ * @author    WHMCS Limited <development@whmcs.com>
+ * @copyright Copyright (c) WHMCS Limited 2005-2020
+ * @license   https://www.whmcs.com/license/
+ * @link      https://www.whmcs.com/
+ *
+ */
+#order-boxes {
+    margin: 0;
+    padding: 0 0 40px 0;
+}
+
+#order-boxes .line-padded {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#order-boxes .fields-container {
+    border-top: 10px solid #5AB9F1;
+    border-bottom: 10px solid #5AB9F1;
+}
+
+#order-boxes .fields-container .field-row {
+    padding: 10px 8px;
+}
+
+#order-boxes .fields-container .field-row:nth-child(odd) {
+    background-color: #E8F0F9;
+    color: #000000;
+}
+
+#order-boxes .fields-container .field-row:nth-child(even) {
+    background-color: #D6E4F6;
+    color: #000000;
+}
+
+#order-boxes .product-radio {
+    padding-left: 40px;
+}
+
+#order-boxes .product-radio input[type=radio] {
+    margin-left: -30px;
+}
+
+#order-boxes .secure-warning {
+    margin: 20px 0 20px 0;
+    padding: 7px;
+    border-top: 4px solid #EBE8CD;
+    border-bottom: 4px solid #EBE8CD;
+    background-color: #F1EFDC;
+    font-size: 0.9em;
+    text-align: center;
+    color: #000;
+}

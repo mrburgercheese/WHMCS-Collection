@@ -1,0 +1,28 @@
+.plesk-feature-row img {
+    display: block;
+    margin: 0 auto 5px auto;
+}
+
+.plesk-package-details {
+    margin-bottom: 12px;
+}
+
+.plesk-usage-stats {
+    padding: 17px 15px;
+}
+
+.plesk-usage-stats .limit-near {
+    margin: 15px 0 5px;
+    font-size: 0.8em;
+}
+
+.plesk-feature-row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#pleskWordPress .panel-body .row:not(:last-of-type):not(.no-margin) {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-servers",
+  "name": "hypervm",
+  "license": "proprietary",
+  "category": "vpscloud",
+  "description": {
+    "name": "HyperVM",
+    "tagline": "HyperVM is a virtualization platform for selling VPS services.",
+    "long": ""
+  },
+  "support": {
+    "docs_url": "https://go.whmcs.com/2297/hypervm"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}

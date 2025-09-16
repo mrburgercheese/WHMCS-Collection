@@ -1,0 +1,49 @@
+$phpinfo-bgcolor: #efefef;
+$phpinfo-text-color: #000;
+$phpinfo-border-color: #ddd;
+
+.whmcs-phpinfo {
+    h1 {
+        margin-top: 20px;
+    }
+    table {
+        width: 100%;
+        border-top:1px solid $phpinfo-border-color;
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        tr.h th {
+            padding: 6px;
+            border-bottom:1px solid $phpinfo-border-color;
+        }
+        tr.v td {
+            padding:10px;
+        }
+
+        .e {
+            padding:3px 6px;
+            width:300px;
+            background-color: #EFF2F9;
+            font-weight: bold;
+            color: $phpinfo-text-color;
+            border-bottom:1px solid $phpinfo-border-color;
+        }
+        .v {
+            padding:3px 6px;
+            background-color: $phpinfo-bgcolor;
+            color: $phpinfo-text-color;
+            border-bottom:1px solid $phpinfo-border-color;
+        }
+        .vr {
+            background-color: $phpinfo-bgcolor;
+            text-align: right;
+            color: $phpinfo-text-color;
+        }
+    }
+
+    hr {
+        display:none;
+    }
+}

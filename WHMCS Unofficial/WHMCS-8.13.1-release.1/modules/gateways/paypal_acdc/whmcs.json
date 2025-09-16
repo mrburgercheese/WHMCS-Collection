@@ -1,0 +1,30 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-gateways",
+  "name": "paypal_acdc",
+  "license": "proprietary",
+  "category": "payments",
+  "description": {
+    "name": "PayPal Card Payments",
+    "tagline": "Process credit and debit card payments with PayPal®.",
+    "long": "## Credit and debit card processing, simplified by PayPal.\n\n\nPayPal Card Payments is **our latest PayPal integration for card-based payments**, replacing PayPal Payments Pro and PayFlow Pro.\n\nUsing PayPal Card Payments requires our PayPal Payments integration, allowing you to provide **transparent processing** of accepted payment types through your PayPal merchant account.",
+  "features": [
+    "PayPal Advanced Checkout — Accept credit and debit cards through an unbranded experience powered by PayPal Advanced Checkout.",
+    "Vaulted Payment Methods — Securely store payment methods with PayPal Vault ([for supported countries](http://go.whmcs.com/1801/PayPal-Payments-service-regions)).",
+    "Full WHMCS Integration — Manage customer disputes, issue refunds, and view your PayPal merchant balance."
+    ]
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/www.paypal.com\/",
+    "docs_url": "https:\/\/go.whmcs.com\/2109\/paypal-card-payments"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}

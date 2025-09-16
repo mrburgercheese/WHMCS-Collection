@@ -1,0 +1,21 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-servers",
+  "name": "enomssl",
+  "license": "proprietary",
+  "category": "digitalservices",
+  "description": {
+    "name": "Enom SSL Certificates",
+    "tagline": "Provision SSL Certificates with an Enom account.",
+    "long": ""
+  },
+  "support": {
+    "docs_url": "https://go.whmcs.com/1889/enom-ssl"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}

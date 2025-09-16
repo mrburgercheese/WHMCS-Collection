@@ -1,0 +1,22 @@
+.view-invoice {
+  .invoice-status {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    &.cancelled,.draft {
+      color: $invoice-text-grey;
+    }
+    &.collections {
+      color: $invoice-text-gold;
+    }
+    &.paid,.payment-pending {
+      color: $invoice-text-green;
+    }
+    &.refunded {
+      color: $invoice-text-blue;
+    }
+    &.unpaid {
+      color: $invoice-text-red;
+    }
+  }
+}

@@ -1,0 +1,226 @@
+.validation-container-order,
+.validation-container-user {
+    display: flex;
+    flex-flow: column;
+    border: 1px solid #E2E7E9;
+    border-radius: 4px;
+
+    & > div {
+        text-align: center;
+        &:not(:first-child) {
+            margin-bottom: 0.65em;
+        }
+    }
+    .btn-validation {
+        width: 75%;
+    }
+    .val-refreshed-div {
+        font-size: 0.9em;
+    }
+    .validation-spinner-span {
+        display: none;
+    }
+    .validation-view-container,
+    .validation-details {
+        display: flex;
+        flex-flow: column;
+    }
+    .validation-details > div:first-of-type {
+        padding: 5px 0px 10px;
+    }
+    .validation-view-container > div:first-of-type {
+        margin-bottom: 5px;
+    }
+    .validation-status-label {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .validation-logo {
+        padding: 0.25em;
+
+        img {
+            max-height: 50px;
+        }
+    }
+}
+.validation-container-order {
+    border-width: 2px;
+    background-color: #efefef;
+
+    .val-clear-div {
+        display: none;
+    }
+}
+.validation-container-user {
+    background-color: #f9f9f9;
+    border-radius: initial;
+
+    .validation-logo,
+    .validation-identity-span {
+        display: none;
+    }
+    .validation-details {
+        margin-top: 0.65em;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .validation-container-order .btn-validation{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .validation-container-order {
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+
+        & > div {
+            text-align: initial;
+
+            &:not(:first-child) {
+                margin: initial;
+            }
+        }
+        .validation-view-container {
+            flex-basis: 20%;
+
+            & > div:first-of-type {
+                margin-bottom: initial;
+            }
+        }
+        .validation-view-container div,
+        .validation-details {
+            flex-flow: row-reverse;
+            flex-grow: 1;
+            justify-content: space-around;
+            align-items: center;
+
+            & > div:first-of-type {
+                padding: initial;
+            }
+        }
+        .validation-buttons {
+            padding-right: 0.95em;
+        }
+        .btn-validation {
+            width: initial;
+            min-width: 10em;
+        }
+    }
+}
+@media screen and (min-width: 992px) {
+    .validation-container-user {
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between;
+        border-width: 0px;
+
+        & > div {
+            text-align: initial;
+            margin: 0.65em;
+        }
+        .validation-view-container {
+            flex-flow: row;
+            & > div:first-of-type {
+                margin: initial;
+            }
+        }
+        .validation-details {
+            flex-flow: row;
+            flex-basis: 60%;
+            align-items: center;
+
+            & > div:first-of-type {
+                padding: initial;
+            }
+        }
+        .validation-details > div:last-of-type,
+        .validation-buttons .validation-view-container > div:last-of-type {
+            margin-left: 0.65em;
+        }
+        .btn-validation {
+            width: initial;
+            min-width: 10em;
+        }
+    }
+}
+
+.valComSpinnerOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+}
+.valComSpinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    margin-top: -50px;
+    margin-left: -50px;
+
+    i {
+        color: lightgrey;
+    }
+}
+.validation-switch-div {
+    padding-top: .2em;
+    text-align: right;
+}
+.valcom_logo {
+    max-height: 100px;
+}
+.fraud-provider-form {
+    table.form tr {
+        td.fieldlabel,
+        td.fieldarea,
+        td.fieldarea input[type="text"],
+        td.fieldarea select {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            text-align: left;
+        }
+        td.fieldarea {
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+            word-wrap: break-word;
+        }
+        td.fieldlabel {
+            padding-bottom: 0;
+            font-weight: bold;
+            background-color: #efefef;
+        }
+    }
+    .form-field-width-container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .form-field-hidden-on-respond {
+        display: none !important;
+    }
+}
+.validation-required-docs {
+    display: flex;
+    flex-wrap: wrap;
+
+    .upload-type {
+        width: 50%;
+    }
+    .upload-type-toggle {
+        max-width: 10%;
+        display: inline-block;
+    }
+    .upload-type-label {
+        display: inline-block;
+        padding-left: 10%;
+
+        &>label {
+            font-weight: normal;
+        }
+    }
+}

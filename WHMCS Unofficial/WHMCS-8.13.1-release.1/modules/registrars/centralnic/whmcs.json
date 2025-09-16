@@ -1,0 +1,31 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-registrars",
+  "name": "centralnic",
+  "license": "proprietary",
+  "category": "domains",
+  "description": {
+    "name": "CentralNic Reseller",
+    "tagline": "The trusted worldwide solution for your domain reselling needs.",
+    "long": "## Apply for an account\nCentralNic Reseller & WHMCS work seamlessly to offer you and your customers a hassle-free experience while registering and managing domain names.\n[Click here to create an account](https://www.centralnicreseller.com/en/sign-up-whmcs)",
+    "features": [
+      "1,100+ Tlds to Resell to Your Customer Base",
+      "Intuitive, White-Labeled Reselling Options",
+      "Trusted by Large Global Web Hosts for Their Domain Reselling Needs",
+      "20+ Years of Experience in the Domain Industry"
+    ]
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/www.centralnicgroup.com\/",
+    "docs_url": "https:\/\/go.whmcs.com\/1749\/centralnic"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}

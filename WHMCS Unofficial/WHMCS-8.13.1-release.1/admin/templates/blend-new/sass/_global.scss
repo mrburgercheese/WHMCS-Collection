@@ -1,0 +1,270 @@
+body {
+  background-color: #f6f6f6;
+}
+
+body,
+input,
+button,
+select,
+textarea {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: #202F60;
+}
+
+a.underlined {
+  text-decoration: underline;
+}
+
+.hover-pointer {
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.4em;
+  font-weight: normal;
+}
+
+h2 {
+  margin: 10px 0 15px 0;
+  color: #444;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+h3 {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.growl {
+  opacity: 0.95;
+}
+
+.inline {
+  display: inline;
+}
+
+.global-admin-warning {
+  display: none;
+  margin: 0;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 0;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 0.96em;
+  font-weight: 300;
+  gap: 10px;
+
+  .has-warning-banner & {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  span {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+
+  a {
+    color: #8a6d3b;
+    text-decoration: underline;
+  }
+
+  button.close {
+    line-height: 30px;
+  }
+}
+
+.contentarea {
+  margin: 0 0 0 195px;
+  padding: 15px;
+  min-height: 600px;
+  background-color: #fff;
+  border: 0;
+  border-left: 1px solid #ccc;
+
+  .page-header-btns {
+    margin: 0 -15px 20px;
+    padding: 10px 15px;
+    background-color: #f6f6f6;
+  }
+
+  &.theme-content-bg {
+    padding: 0;
+    background-color: #f8f9fb;
+
+    > div > h1:first-child {
+      display: none;
+    }
+
+    .theme-header {
+      margin: 0;
+      padding: 30px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+.footerbar {
+  font-family: "Open Sans", sans-serif;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  color: #5C7387;
+  background-color: #FAFAFA;
+  font-size: 11.2px;
+  padding: 0px 10px;
+  align-items: center;
+
+  a {
+    color: #5C7387;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+
+
+    span {
+
+      font-size: 24px;
+      color: #A2AFBA;
+      margin: 0px 8px;
+    }
+  }
+}
+
+.email-verified-badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 0.7em;
+  font-weight: 700;
+  line-height: 1;
+  color: #666;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.introVideo {
+  .modal-header,
+  .modal-footer {
+    display: none;
+  }
+
+  .modal-content {
+    background: none;
+    box-shadow: none !important;
+  }
+
+  .close {
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    opacity: 50%;
+  }
+}
+
+.table-themed {
+  border-collapse: separate;
+  border-spacing: 1px;
+
+  tr th {
+    background: #1a4d80;
+    color: #fff;
+    margin: 1px;
+    padding: 5px 10px !important;
+    border: 0 !important;
+    border-radius: 3px;
+  }
+
+  tr td {
+    border-top: 0 !important;
+    border-bottom: 1px solid #ebebeb;
+    padding: 3px !important;
+  }
+
+  tr:hover td {
+    background-color: #eff2f9;
+  }
+
+  thead .sorting:after,
+  thead .sorting_asc:after,
+  thead .sorting_desc:after {
+    bottom: 5px !important;
+  }
+}
+
+.dataTables_paginate {
+  li.paginate_button a {
+    padding: 2px 9px;
+  }
+}
+
+.paging-dropdown .dropdown-menu {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.modal-reissues {
+  .modal-body {
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+@media (min-width: 768px) {
+  .pull-right-md-larger {
+    float: right !important;
+  }
+}
+
+.slide-tray {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 450px;
+  color: #ddd;
+  z-index: 2000;
+  overflow: auto;
+
+  background-color: #efefef;
+  border-right: 1px solid #ddd;
+  color: #666;
+
+  &.right {
+    right: 0;
+    border-right: 0;
+    border-left: 1px solid #ddd;
+  }
+
+  .inner-container {
+    padding: 25px;
+  }
+}

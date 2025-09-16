@@ -1,0 +1,245 @@
+.intellisearch {
+  float: right;
+  color: #fff;
+  width: 40px;
+  border-radius: 4px;
+  text-align: left;
+  transition: all 0.2s;
+  z-index: 1000;
+  overflow: hidden;
+
+  form {
+    position: relative;
+
+    .form-control {
+      margin: 0;
+      padding-left: 40px;
+      height: 34px;
+      background: $primary-bg;
+      color: #fff;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  .fas {
+    position: absolute;
+    padding: 10px 0;
+    left: 0;
+    top: 0;
+    width: 41px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 100;
+
+    &.closer {
+      display: none;
+      right: 0;
+      text-align: right;
+    }
+  }
+
+  .btn {
+    display: none;
+    height: 34px;
+  }
+
+  &.active {
+    .closer {
+      display: block;
+    }
+
+    .form-control {
+      background-color: #14273e;
+      box-shadow: none;
+      cursor: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #14273e;
+      border: 0;
+      color: #fff;
+    }
+  }
+
+  &.full-width {
+    left: 5px !important;
+    width: auto;
+    right: 5px !important;
+  }
+}
+
+.intellisearchresults {
+  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  background-color: #fff;
+  text-align: left;
+  z-index: 10;
+
+  @media only screen and (min-width: $navbar-collapse-min) {
+    margin: 0 0 0 10px;
+    border-left: 1px solid #eaeaea;
+    left: auto;
+    right: 0;
+    width: 500px;
+  }
+
+  .has-warning-banner & {
+    top: 85px;
+  }
+
+  .template {
+    display: none;
+  }
+
+  .search-header,
+  .search-footer {
+    padding: 4px 10px;
+    background-color: #eaeaea;
+    color: #333;
+    line-height: 21px;
+  }
+
+  .search-header {
+    border-radius: 3px 3px 0 0;
+    font-size: 0.85em;
+  }
+
+  .outcome {
+    display: none;
+    padding: 26px;
+    text-align: center;
+
+    &.search-in-progress {
+      display: block;
+    }
+  }
+
+  .search-results {
+    display: none;
+    margin: 0;
+    padding: 8px;
+    max-height: 400px;
+    overflow: auto;
+    text-align: left;
+
+    a.search-more-results {
+      cursor: pointer;
+      display: block !important;
+      text-align: center;
+    }
+  }
+
+  .search-footer {
+    border-radius: 0 0 3px 3px;
+    font-size: 0.9em;
+
+    .realtime,
+    .hide-inactive {
+      float: right;
+      line-height: 0;
+      margin-left: 5px;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    .search-footer .realtime {
+      display: none;
+    }
+  }
+
+  .bootstrap-switch-id-intelliSearchHideInactiveSwitch .bootstrap-switch-label,
+  .bootstrap-switch-id-checkboxShowHidden .bootstrap-switch-label {
+    min-width: 130px;
+    white-space: nowrap;
+  }
+
+  .bootstrap-switch-id-intelliSearchRealtime .bootstrap-switch-label,
+  .bootstrap-switch-id-checkboxShowHidden .bootstrap-switch-label {
+    min-width: 100px;
+    white-space: nowrap;
+  }
+
+  h5 {
+    margin: 0 0 5px 0;
+    padding: 6px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    color: #888;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+
+    i {
+      float: right;
+      transition: transform 200ms ease;
+    }
+
+    &.collapsed i {
+      transform: rotate(180deg);
+    }
+  }
+
+  ul {
+    margin: 2px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      background-color: #fff;
+      padding: 2px 8px;
+      margin: 2px;
+      font-size: 12px;
+      border-radius: 3px;
+      color: #666;
+      overflow: hidden;
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: #2161a3;
+      }
+
+      .icon {
+        float: left;
+        margin: 0 6px 0 0;
+        padding: 4px;
+        width: 28px;
+        height: 32px;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 3px;
+        color: #2161a3;
+      }
+
+      .label {
+        float: right;
+        right: 5px;
+        margin: 6px 0 0;
+        padding: 4px 5px;
+        font-size: 9px;
+        z-index: 500;
+      }
+
+      em {
+        display: block;
+        font-style: normal;
+        font-size: 11px;
+        color: #888;
+      }
+    }
+  }
+}

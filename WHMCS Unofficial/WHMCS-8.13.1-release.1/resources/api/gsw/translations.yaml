@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.0/schema/2019-04-02
+openapi: 3.0.0
+info:
+  title: WHMCS Getting Started Wizard API
+  description: API endpoints for the WHMCS Getting Started module
+  version: 1.0.0
+servers:
+  - url: /admin/getting-started
+    description: Admin Getting Started API
+paths:
+  /languages:
+    get:
+      summary: Get all available admin languages
+      description: Returns a complete list of all available admin interface languages
+      operationId: getAvailableLanguages
+      responses:
+        '200':
+          description: List of available languages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  languages:
+                    type: array
+                    items:
+                      type: string
+                    example: ["arabic", "czech", "dutch", "english", "farsi", "french", "hebrew", "hungarian", "italian", "portugues-br", "portugues", "russian", "spanish", "turkish"]
+  /translations/{language}:
+    get:
+      summary: Get translations for a specific language
+      description: Returns all translations for the specified language
+      operationId: getTranslations
+      parameters:
+        - name: language
+          in: path
+          required: true
+          description: Language code to fetch translations for
+          schema:
+            type: string
+          example: english
+      responses:
+        '200':
+          description: Language translations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  translations:
+                    type: object
+                    description: Nested translation keys and values
+                    additionalProperties: true
+        '404':
+          description: Language not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Language is not found"

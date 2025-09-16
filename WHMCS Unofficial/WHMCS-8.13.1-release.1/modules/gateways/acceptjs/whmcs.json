@@ -1,0 +1,24 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-gateways",
+  "name": "acceptjs",
+  "license": "proprietary",
+  "category": "payments",
+  "description": {
+    "name": "Accept.js",
+    "tagline": "Secure tokenized card processing and storage from Authorize.net."
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/www.authorize.net\/",
+    "docs_url": "https:\/\/go.whmcs.com\/2021\/acceptjs"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+.client-limit-notification {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 380px;
+    font-size: 0.9em;
+    border-radius: 2px;
+    z-index: 1000;
+
+    .has-warning-banner & {
+        top: 40px;
+    }
+
+    .panel-heading {
+        padding: 8px 15px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+
+        .close {
+            margin-top: -3px;
+        }
+    }
+
+    .panel-title {
+        font-size: 13px;
+
+        i {
+            float: left;
+            margin-top: -1px;
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        small {
+            font-size: 0.9em;
+        }
+    }
+
+    .panel-body {
+        .links {
+            margin: 5px 0 0 0;
+
+            .btn-link {
+                color: #666;
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

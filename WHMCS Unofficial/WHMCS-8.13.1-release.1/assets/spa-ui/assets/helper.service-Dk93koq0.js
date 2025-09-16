@@ -1,0 +1,1 @@
+async function c(e){if(!e)return[];const t=new URL(window.location.protocol+e).pathname,o=await(await fetch(t)).blob(),a=t.split("/").pop();return new File([o],a,{type:o.type})}function i(e,t){return Object.keys(e).some(n=>e[n]!==t[n])}export{i as c,c as g};

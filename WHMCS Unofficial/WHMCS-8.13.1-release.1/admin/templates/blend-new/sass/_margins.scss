@@ -1,0 +1,45 @@
+.no-margin {
+    margin: 0;
+}
+
+.top-margin-5 {
+    margin-top: 5px;
+}
+
+.bottom-margin-5 {
+    margin-bottom: 5px;
+}
+
+.top-margin-10 {
+    margin-top: 10px;
+}
+
+.bottom-margin-10 {
+    margin-bottom: 10px;
+}
+
+.bottom-margin-20 {
+    margin-bottom: 20px;
+}
+
+.right-margin-5 {
+    margin-right: 5px;
+}
+
+.left-margin-5 {
+    margin-left: 5px;
+}
+
+.margin-top-bottom-20 {
+    margin: 20px 0;
+}
+
+.margin-top-bottom-25 {
+    margin: 25px 0;
+}
+
+@media (max-width:767px) {
+    .bottom-xs-margin {
+        margin-bottom: 10px;
+    }
+}

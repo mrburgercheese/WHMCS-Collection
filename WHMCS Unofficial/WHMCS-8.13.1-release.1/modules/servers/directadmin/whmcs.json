@@ -1,0 +1,25 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-servers",
+  "name": "directadmin",
+  "license": "proprietary",
+  "category": "webhosting",
+  "description": {
+    "name": "DirectAdmin",
+    "tagline": "A linux based web hosting control panel."
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/www.directadmin.com\/",
+    "support_url": "https:\/\/www.directadmin.com\/support.php",
+    "docs_url": "https:\/\/go.whmcs.com\/2277\/directadmin"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}

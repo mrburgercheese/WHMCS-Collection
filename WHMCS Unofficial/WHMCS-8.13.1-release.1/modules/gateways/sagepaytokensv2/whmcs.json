@@ -1,0 +1,20 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-gateways",
+  "name": "sagepaytokensv2",
+  "license": "proprietary",
+  "category": "payments",
+  "description": {
+    "name": "SagePay Tokens v2",
+    "tagline": "Secure recurring payment processing using SagePay's Token service with 3DSv2 support."
+  },
+  "support": {
+    "docs_url": "https:\/\/go.whmcs.com\/2129\/sagepay-tokens"
+  },
+  "authors": [
+    {
+      "name": "WHMCS",
+      "homepage": "https:\/\/www.whmcs.com\/"
+    }
+  ]
+}

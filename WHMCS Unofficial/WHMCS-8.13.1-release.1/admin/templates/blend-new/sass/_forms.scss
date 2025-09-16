@@ -1,0 +1,142 @@
+.btn-container {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.inline {
+    display: inline;
+}
+
+.select-inline {
+    display: inline;
+    min-width: 20%;
+    max-width: 50%;
+    width: auto;
+}
+
+.select-inline-long {
+    display: inline;
+    min-width: 20%;
+    max-width: 80%;
+    width: auto;
+}
+
+.form-control {
+    padding: 4px 8px;
+    border-radius: 2px;
+    height: 30px;
+
+    &.input-lg {
+        height: 46px;
+        padding: 6px 18px;
+    }
+
+    &.selectize-control {
+        height: 30px;
+        border-radius: 2px;
+    }
+
+    &.selectize-ticketCc {
+        height: auto;
+    }
+}
+
+.selectize-control {
+    height: 30px;
+    border-radius: 2px;
+
+    .selectize-input {
+        padding: 4px 8px;
+        height: 30px;
+        min-height: 30px;
+        border-radius: 2px;
+
+        .client-name {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 90%;
+        }
+    }
+}
+
+.input-group {
+    &.input-group-inline-flex {
+        .input-group-btn, .input-group-addon {
+            width: unset;
+            padding: 4px 8px;
+            line-height: 1.42857143;
+        }
+    }
+}
+.input-group-btn {
+    .btn {
+        padding: 4px 10px;
+    }
+}
+
+.date-picker-prepend-icon {
+    .field-icon {
+        height: 30px;
+        line-height: 30px;
+    }
+}
+
+.inline-edit {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px dashed #336699;
+    height: 22px;
+    padding: 0 5px;
+    border-radius: 0;
+    min-width: 100px;
+
+    &:focus {
+        background-color: #fff;
+        box-shadow: none;
+    }
+}
+
+.checkbox-inline.toggle {
+    padding-left: 0;
+    font-size: 0.9em;
+}
+
+.radio-disabled {
+    color:#999;
+}
+
+@media (min-width: 768px) {
+    .input-md-80px {
+        width: 80px !important;
+    }
+}
+@media (max-width: 768px) {
+    .input-group-140px {
+        width: 140px;
+    }
+}
+
+.input-subtext {
+    margin-top: 1ex;
+}
+
+table {
+    &.form
+    {
+        &.form-fixed {
+            table-layout: fixed;
+        }
+    }
+}
+
+.captcha-preview {
+    max-width:260px;
+    max-height:65px;
+    margin-top:5px;
+}
+
+.send-invitation-option {
+    min-width: 180px;
+}

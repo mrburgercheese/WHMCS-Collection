@@ -1,0 +1,526 @@
+h2.ticket-subject {
+    float: left;
+    margin: 0 0 5px 0;
+}
+
+.ticketlastreply {
+    float: right;
+    margin: 0;
+    padding: 5px 15px;
+    font-size: 11px;
+    background-color: #333;
+    color: #efefef;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.requestor-type-operator {
+    background-color: #5bc0de;
+}
+.requestor-type-owner {
+    background-color: #5cb85c;
+}
+.requestor-type-authorizeduser {
+    background-color: #777;
+}
+.requestor-type-registereduser  {
+    background-color: #f0ad4e;
+}
+.requestor-type-subaccount {
+    background-color: #777;
+}
+.requestor-type-guest {
+    background-color: #ccc;
+}
+
+.label.ticket-actions-count {
+    background-color: #666;
+    margin-left: 1ex;
+}
+.container-scheduled-actions-tab {
+    padding: 12px;
+
+    .table,
+    .tablebg {
+        margin: 0;
+    }
+}
+
+.container-scheduled-action-parameters{
+    width: 100%;
+    padding-right: 20px;
+}
+.btn.btn-schedule-actions {
+    margin-bottom: 12px;
+    &.active {
+        background-color: $scheduled-actions-light-blue-900;
+        border-color: $scheduled-actions-mid-blue-900;
+        color: white;
+    }
+}
+
+.btn-schedule-actions,
+.btn-scheduled-actions-primary,
+.btn-scheduled-actions-secondary,
+.btn-scheduled-actions-white:not(.btn-scheduled-action-cancel) {
+    i {
+        margin-right: 8px;
+    }
+}
+
+.btn-scheduled-actions-primary,
+.btn-scheduled-actions-primary:focus {
+    background-color: $scheduled-actions-light-blue-900;
+    border-color: $scheduled-actions-mid-blue-900;
+    color: white;
+}
+
+.btn-scheduled-actions-secondary {
+    background-color: $scheduled-actions-light-blue-50;
+    border-color: $scheduled-actions-light-blue-900;
+    color: $scheduled-actions-dark-blue-900;
+}
+
+.btn-scheduled-actions-white {
+    background-color: white;
+    border-color: $scheduled-actions-light-blue-300;
+    color: $scheduled-actions-dark-blue-900;
+}
+
+.cloneable {
+    display: none;
+}
+
+.panel-scheduled-actions-management {
+    background-color: $scheduled-actions-light-blue-50;
+    border-color: $scheduled-actions-light-blue-100;
+    border-radius: 12px;
+    display: none;
+    margin: 12px 0 0 0;
+    padding: 20px 16px;
+
+    .panel-heading {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        padding: 0;
+    }
+
+    .panel-body {
+        padding: 0;
+
+        .container-fluid {
+            background-color: white;
+            border: 1px solid $scheduled-actions-light-blue-100;
+            border-radius: 8px;
+            &:not(:last-child) {
+                margin-bottom: 16px;
+            }
+        }
+
+        .container-item {
+            color: $scheduled-actions-dark-blue-900;
+            font-size: 1.2rem;
+            display: flex;
+            flex-flow: row wrap;
+
+            select,
+            input,
+            button {
+                height: 32px;
+            }
+
+            &:not(:first-child) {
+                border-top: 1px solid $scheduled-actions-light-blue-100;
+            }
+
+            & > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .md-editor {
+                margin-bottom: 12px;
+            }
+        }
+
+        .container-created-actions .container-item > div div:last-of-type {
+            margin-left: auto;
+        }
+
+        .container-item:not(.container-heading) > div:first-child {
+            font-size: 1.4rem;
+        }
+
+        .container-item > div:not(:first-child) select {
+            width: auto;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+
+        .container-heading {
+            font-weight: 700;
+        }
+
+        .container-heading-item {
+            padding: 8px 16px;
+            &:not(:last-child) {
+                border-right: 1px solid $scheduled-actions-light-blue-100;
+            }
+        }
+
+        .btn-cancel-scheduled-action i {
+            margin: 0;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            text-align: center;
+        }
+    }
+
+    .container-delay-inputs span {
+        margin-right: 24px;
+
+        input {
+            width: 42px;
+            margin-right: 8px;
+        }
+
+        label {
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+    }
+
+    .panel-icon {
+        background-color: white;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 12px;
+        padding: 4px 8px;
+    }
+
+    .panel-title {
+        color: $scheduled-actions-dark-blue-900;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .panel-control-area button:not(:last-child) {
+        margin-right: 12px;
+    }
+
+    .scheduled-actions-dropdown {
+        font-size: 1.4rem;
+        border-color: $scheduled-actions-light-blue-300;
+        border-radius: 4px;
+        color: $scheduled-actions-dark-blue-900;
+        margin-right: 8px;
+    }
+
+    .dropdown-highlight {
+        background-color: $scheduled-actions-light-blue-50;
+    }
+
+    .scheduled-actions-input {
+        border: 1px solid $scheduled-actions-light-blue-300;
+        border-radius: 4px;
+    }
+
+    .container-add-action > div {
+        display: flex;
+    }
+
+    .container-item > div {
+        padding: 16px;
+    }
+
+    .panel-control-area button:not(.visible),
+    .container-created-actions > .container-add-action:not(.visible),
+    .panel-title-area > div:not(.visible) {
+        display: none;
+    }
+
+    .panel-title-detailed {
+        color: $scheduled-actions-dark-blue-900;
+
+        & div {
+            display: inline-block;
+        }
+
+        & .title-scheduled-action-datetime {
+            font-weight: bold;
+        }
+    }
+}
+
+.modal-scheduled-action-discard-confirm .btn,
+.panel-scheduled-actions-management .btn {
+    margin-bottom: initial;
+    width: initial;
+}
+
+#ticketReplyScheduledActions {
+    background-color: #f6f6f6;
+    border: 0;
+    padding: 0;
+
+    & > .panel-scheduled-actions-management {
+        margin: 0;
+    }
+}
+
+#ticketreplies {
+    word-wrap: break-word;
+
+    .submitter {
+        text-align: right;
+        padding: 15px 20px;
+
+        .name {
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: 11px;
+            font-style: italic;
+            color: #8BB1D8;
+            padding: 4px 0;
+        }
+    }
+
+    .tools {
+        margin: 0;
+        padding: 0 20px;
+        text-align: right;
+    }
+
+    .postedon {
+        padding: 10px 12px 0 12px;
+        font-size: 11px;
+        color: #999;
+    }
+
+    .reply {
+        margin: 0 0 10px 0;
+        padding: 0;
+        border: 1px solid #C5D8EB;
+        background-color: #F7FAFD;
+        box-shadow: 0 0 5px #CEE0F0;
+
+        .leftcol {
+            float: left;
+            width: 200px;
+        }
+        .rightcol {
+            margin-left: 200px;
+            border-left: 1px solid #e5e5e5;
+            min-height: 150px;
+        }
+
+        &.staff {
+            border: 1px solid #EFE9D3;
+            background-color: #FAF8F1;
+            box-shadow: 0 0 5px #F3EFDE;
+        }
+        &.note {
+            border: 1px dashed #F0B6C3;
+            background-color: #FFDEE5;
+            box-shadow: 0 0 5px #FFD9E1;
+
+            .rightcol {
+                border-left: 1px solid #E8C3CB;
+            }
+
+            .submitter .title {
+                color: #cc0000;
+            }
+
+            .postedon {
+                color: #000;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .ticketcontextlinks {
+        float: right;
+        padding: 10px;
+    }
+
+    .msgwrap {
+        padding: 10px;
+    }
+
+    .message {
+        padding: 0;
+        color: #000;
+    }
+}
+
+.ticketflag {
+    background-color: #FFFFCC;
+}
+
+.ticketattachmentcontainer {
+    float:left;
+    padding:0 10px 10px 0;
+    margin: 0 10px 0 0;
+    text-align:center;
+}
+
+.ticketattachmentthumbcontainer {
+    height:150px;
+    padding:10px;
+    display: block;
+}
+
+.ticketattachmentthumb {
+    background-color:#fff;
+    border:1px solid #ccc;
+    text-decoration: none;
+    max-height:127px;
+    display: block;
+    margin: 0 auto;
+}
+
+.ticketattachmentinfo {
+    display: block;
+}
+
+.ticketattachmentlinks {
+    margin-bottom:15px;
+}
+
+#prerepliescontainer {
+    display: none;
+}
+
+.predefined-replies-search {
+    input {
+        float: right;
+        background-image: url("../../../images/icons/search.png");
+        background-position: 5px 3px;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 2px 2px 2px 25px;
+        border: 1px solid #efefef;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h2.ticket-subject {
+        float: none;
+        width: 100%;
+    }
+    .ticket-status {
+        display: block;
+        margin: 5px 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    .close-ticket {
+        font-size: 14px;
+    }
+    .ticketlastreply {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#scheduledActionsList {
+    background-color: #FFFFFF;
+    border: 1px solid #DCE9FF;
+    border-radius: 8px;
+    border-collapse: unset;
+    th, td {
+        border-width: 0px 1px 1px 1px;
+        border-style: solid;
+        border-color: #DCE9FF;
+        padding: 8px 16px 8px 16px;
+        color: #163753;
+        white-space: nowrap;
+    }
+    td:nth-child(2) {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 200px;
+    }
+    th {
+        font-weight: bold;
+        font-size: 12px;
+    }
+    td {
+        font-weight: normal;
+        font-size: 14px;
+    }
+    th:first-child, td:first-child {
+        border-left: 0px;
+    }
+    th:last-child, td:last-child {
+        border-right: 0px;
+    }
+    tr:last-child td {
+        border-bottom: 0px;
+    }
+    tr.selected {
+        background-color: $scheduled-actions-light-blue-50;
+    }
+    th:nth-child(1) {
+        width: 280px;
+    }
+    th:nth-child(3) {
+        width: 190px;
+    }
+    th:nth-child(4) {
+        width: 160px;
+    }
+    th:nth-child(5) {
+        width: 160px;
+    }
+    th:nth-child(6) {
+        width: 14px;
+    }
+    .fa-check-circle {
+        color: #00D494;
+    }
+    .fa-clock {
+        color: #EEB82E
+    }
+    .fa-step-forward {
+        color: #99BFFF;
+    }
+    .fa-exclamation-circle {
+        color: #EE2F2F;
+    }
+    .fa-times-circle {
+        color: #505050;
+    }
+}
+
+.ticket-flag {
+    &.priority-low {
+        color: #3496f2;
+    }
+    &.priority-medium {
+        color: #fc870b;
+    }
+    &.priority-high {
+        color: #ed333c;
+    }
+}
